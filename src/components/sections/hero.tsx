@@ -4,9 +4,9 @@ import logo from '@public/logo.png';
 export default function Hero() {
   return (
     <section className='py-20 pb-14 overflow-hidden'>
-      <div className='max-w-[1200px] mx-auto px-8 max-[560px]:px-5 grid grid-cols-[1.15fr_0.85fr] gap-16 items-end max-[960px]:grid-cols-1 max-[960px]:gap-10'>
+      <div className='max-w-300 mx-auto px-8 max-[560px]:px-5 grid grid-cols-[1.15fr_0.85fr] gap-16 items-end max-[960px]:grid-cols-1 max-[960px]:gap-10'>
         <div>
-          <div className='flex items-center gap-[14px] font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft mb-7'>
+          <div className='flex items-center gap-3.5 font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft mb-7'>
             <span className='block h-px w-12 bg-ink' />
             Skup samochodów · od 2009
           </div>
@@ -25,10 +25,10 @@ export default function Hero() {
             płacimy. Każda marka, każdy rocznik, każdy stan techniczny.
           </p>
 
-          <div className='flex gap-[14px] flex-wrap items-center'>
+          <div className='flex gap-3.5 flex-wrap items-center'>
             <a
               href='tel:+48601500160'
-              className='bg-red text-white px-[26px] py-[18px] rounded-[14px] font-bold text-[17px] inline-flex items-center gap-[14px]'
+              className='bg-red text-white px-6.5 py-4.5 rounded-[14px] font-bold text-[17px] inline-flex items-center gap-3.5'
               style={{
                 boxShadow:
                   '0 1px 0 rgba(0,0,0,.04), 0 12px 24px -8px rgba(230,51,41,.45)',
@@ -43,11 +43,11 @@ export default function Hero() {
         </div>
 
         <aside className='bg-white border border-line rounded-[18px] p-7 relative'>
-          <div className='absolute top-[-14px] right-6 bg-ink text-white font-mono text-[11px] uppercase tracking-[0.16em] px-3 py-[6px] rounded-full'>
+          <div className='absolute top-3.5 right-6 bg-ink text-white font-mono text-[11px] uppercase tracking-[0.16em] px-3 py-1.5 rounded-full'>
             Wizytówka
           </div>
 
-          <div className='w-full aspect-square bg-white rounded-[12px] flex items-center justify-center border border-dashed border-line'>
+          <div className='w-full aspect-square bg-white rounded-xl flex items-center justify-center border border-dashed border-line'>
             <Image
               src={logo}
               alt='skupAUT — +48 601 500 160'
@@ -56,7 +56,7 @@ export default function Hero() {
             />
           </div>
 
-          <div className='grid grid-cols-2 gap-[18px] mt-[22px] text-[13px]'>
+          <div className='grid grid-cols-2 gap-4.5 mt-5.5 text-[13px]'>
             <div>
               <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>
                 Telefon

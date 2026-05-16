@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pl' className={`${manrope.variable} ${jetbrainsMono.variable}`}>
-      <body className='bg-paper text-ink antialiased leading-[1.5]'>
+      <body className='bg-paper text-ink antialiased leading-normal'>
         {children}
       </body>
     </html>

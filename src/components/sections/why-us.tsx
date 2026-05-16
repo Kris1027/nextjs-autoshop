@@ -23,10 +23,10 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section id='dlaczego' className='py-24 max-[960px]:py-[72px]'>
-      <div className='max-w-[1200px] mx-auto px-8 max-[560px]:px-5'>
+    <section id='dlaczego' className='py-24 max-[960px]:py-18'>
+      <div className='max-w-300 mx-auto px-8 max-[560px]:px-5'>
         <div className='grid grid-cols-[200px_1fr] gap-12 items-baseline mb-12 max-[960px]:grid-cols-1 max-[960px]:gap-4'>
-          <div className='font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft pt-[18px] border-t-2 border-ink w-fit'>
+          <div className='font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft pt-4.5 border-t-2 border-ink w-fit'>
             03 — Dlaczego my
           </div>
           <h2
@@ -47,7 +47,7 @@ export default function WhyUs() {
                 {r.big}
               </div>
               <div>
-                <h3 className='m-0 mb-[6px] text-[20px] font-bold tracking-[-0.01em]'>
+                <h3 className='m-0 mb-1.5 text-[20px] font-bold tracking-[-0.01em]'>
                   {r.title}
                 </h3>
                 <p className='m-0 text-ink-soft text-[14px] leading-[1.6]'>

@@ -1,9 +1,9 @@
 export default function Contact() {
   return (
-    <section id='kontakt' className='bg-paper-2 py-24 max-[960px]:py-[72px]'>
-      <div className='max-w-[1200px] mx-auto px-8 max-[560px]:px-5'>
+    <section id='kontakt' className='bg-paper-2 py-24 max-[960px]:py-18'>
+      <div className='max-w-300 mx-auto px-8 max-[560px]:px-5'>
         <div className='grid grid-cols-[200px_1fr] gap-12 items-baseline mb-12 max-[960px]:grid-cols-1 max-[960px]:gap-4'>
-          <div className='font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft pt-[18px] border-t-2 border-ink w-fit'>
+          <div className='font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft pt-4.5 border-t-2 border-ink w-fit'>
             04 — Kontakt
           </div>
           <h2
@@ -31,25 +31,25 @@ export default function Contact() {
 
             <div className='grid grid-cols-2 gap-6 border-t border-line pt-7 max-[560px]:grid-cols-1'>
               <div>
-                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-[6px]'>
+                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
                   E-mail
                 </span>
                 <b className='text-[15px]'>kontakt@skupaut.pl</b>
               </div>
               <div>
-                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-[6px]'>
+                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
                   Zasięg
                 </span>
                 <b className='text-[15px]'>Cała Polska</b>
               </div>
               <div>
-                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-[6px]'>
+                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
                   WhatsApp
                 </span>
                 <b className='text-[15px]'>+48 601 500 160</b>
               </div>
               <div>
-                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-[6px]'>
+                <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
                   Forma płatności
                 </span>
                 <b className='text-[15px]'>Gotówka / BLIK / przelew</b>
@@ -61,7 +61,7 @@ export default function Contact() {
             <h3 className='m-0 text-[28px] font-extrabold tracking-[-0.02em]'>
               Godziny pracy
             </h3>
-            <div className='flex flex-col border-t border-white/[0.12]'>
+            <div className='flex flex-col border-t border-white/12'>
               {[
                 ['Pon — Pt', '8:00 — 22:00'],
                 ['Sobota', '9:00 — 20:00'],
@@ -70,9 +70,9 @@ export default function Contact() {
               ].map(([day, hours]) => (
                 <div
                   key={day}
-                  className='flex justify-between items-center py-4 border-b border-white/[0.12] text-[15px]'
+                  className='flex justify-between items-center py-4 border-b border-white/12 text-[15px]'
                 >
-                  <span className='text-white/65 font-mono text-[13px] tracking-[0.05em]'>
+                  <span className='text-white/65 font-mono text-[13px] tracking-wider'>
                     {day}
                   </span>
                   <b className='font-bold'>{hours}</b>

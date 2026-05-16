@@ -27,10 +27,10 @@ const items = [
 
 export default function WhatWeBuy() {
   return (
-    <section id='co-kupujemy' className='py-24 max-[960px]:py-[72px]'>
-      <div className='max-w-[1200px] mx-auto px-8 max-[560px]:px-5'>
+    <section id='co-kupujemy' className='py-24 max-[960px]:py-18'>
+      <div className='max-w-300 mx-auto px-8 max-[560px]:px-5'>
         <div className='grid grid-cols-[200px_1fr] gap-12 items-baseline mb-12 max-[960px]:grid-cols-1 max-[960px]:gap-4'>
-          <div className='font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft pt-[18px] border-t-2 border-ink w-fit'>
+          <div className='font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft pt-4.5 border-t-2 border-ink w-fit'>
             01 — Oferta
           </div>
           <h2
@@ -46,7 +46,7 @@ export default function WhatWeBuy() {
           {items.map((item) => (
             <div
               key={item.num}
-              className='bg-white px-6 pt-7 pb-8 min-h-[220px] flex flex-col justify-between'
+              className='bg-white px-6 pt-7 pb-8 min-h-55 flex flex-col justify-between'
             >
               <div
                 className={`w-11 h-11 rounded-[10px] flex items-center justify-center font-mono text-[13px] font-semibold ${item.iconClass}`}
