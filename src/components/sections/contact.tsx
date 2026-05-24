@@ -1,4 +1,4 @@
-import { phone, email, contactHours } from '@/lib/data';
+import { phone, phoneLocal, email, contactHours } from '@/lib/data';
 
 export default function Contact() {
   return (
@@ -27,7 +27,7 @@ export default function Contact() {
                 className='font-extrabold tracking-[-0.03em] leading-none'
                 style={{ fontSize: 'clamp(40px, 5.5vw, 72px)' }}
               >
-                +48 <b className='text-red'>{phone.slice(4)}</b>
+                +48 <b className='text-red'>{phoneLocal}</b>
               </div>
             </div>
 

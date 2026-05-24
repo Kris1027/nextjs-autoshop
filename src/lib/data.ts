@@ -1,4 +1,5 @@
 export const phone = '+48 601 500 160';
+export const phoneLocal = '601 500 160';
 export const email = 'kontakt@skupaut.pl';
 export const businessName = 'skupAUT';
 
@@ -76,23 +77,25 @@ export const whyUsReasons = [
   },
 ];
 
-export const contactHours = [
-  ['Pon - Pt', '9:00 - 16:00'],
-  ['Sobota', '9:00 - 16:00'],
-  ['Niedziela', '11:00 - 15:00'],
-  ['Święta', 'Telefon'],
-];
-
 // 0=Sun, 1=Mon, ..., 6=Sat - null means closed that day
 export const businessSchedule: Record<
   number,
   { day: string; open: string; close: string } | null
 > = {
   0: { day: 'Niedziela', open: '11:00', close: '15:00' },
-  1: { day: 'Poniedziałek', open: '09:00', close: '16:00' },
-  2: { day: 'Wtorek', open: '09:00', close: '16:00' },
-  3: { day: 'Środa', open: '09:00', close: '16:00' },
-  4: { day: 'Czwartek', open: '09:00', close: '16:00' },
-  5: { day: 'Piątek', open: '09:00', close: '16:00' },
-  6: { day: 'Sobota', open: '09:00', close: '16:00' },
+  1: { day: 'Poniedziałek', open: '9:00', close: '16:00' },
+  2: { day: 'Wtorek', open: '9:00', close: '16:00' },
+  3: { day: 'Środa', open: '9:00', close: '16:00' },
+  4: { day: 'Czwartek', open: '9:00', close: '16:00' },
+  5: { day: 'Piątek', open: '9:00', close: '16:00' },
+  6: { day: 'Sobota', open: '9:00', close: '16:00' },
 };
+
+const fmt = (s: { open: string; close: string }) => `${s.open} - ${s.close}`;
+
+export const contactHours: [string, string][] = [
+  ['Pon - Pt', fmt(businessSchedule[1]!)],
+  ['Sobota', fmt(businessSchedule[6]!)],
+  ['Niedziela', fmt(businessSchedule[0]!)],
+  ['Święta', 'Telefon'],
+];

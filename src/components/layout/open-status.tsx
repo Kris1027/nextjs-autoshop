@@ -2,10 +2,22 @@
 
 import { businessSchedule } from '@/lib/data';
 
-function getWarsawDate(): Date {
-  return new Date(
-    new Date().toLocaleString('en-US', { timeZone: 'Europe/Warsaw' })
-  );
+const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+function getWarsawParts(): { dayOfWeek: number; minutesFromMidnight: number } {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Warsaw',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  }).formatToParts(new Date());
+  const get = (type: string) =>
+    parts.find((p) => p.type === type)?.value ?? '0';
+  return {
+    dayOfWeek: WEEKDAYS.indexOf(get('weekday')),
+    minutesFromMidnight: parseInt(get('hour')) * 60 + parseInt(get('minute')),
+  };
 }
 
 function toMinutes(t: string): number {
@@ -14,10 +26,10 @@ function toMinutes(t: string): number {
 }
 
 export default function OpenStatus() {
-  const now = getWarsawDate();
-  const schedule = businessSchedule[now.getDay()];
+  const { dayOfWeek, minutesFromMidnight } = getWarsawParts();
+  const schedule = businessSchedule[dayOfWeek];
 
-  const current = now.getHours() * 60 + now.getMinutes();
+  const current = minutesFromMidnight;
   const isOpen =
     !!schedule &&
     current >= toMinutes(schedule.open) &&
