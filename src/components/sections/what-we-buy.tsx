@@ -1,29 +1,4 @@
-const items = [
-  {
-    num: '01',
-    title: 'Osobowe',
-    desc: 'Każda marka i model — od miejskich aut po SUV-y i premium.',
-    iconClass: 'bg-paper-2 text-ink',
-  },
-  {
-    num: '02',
-    title: 'Dostawcze',
-    desc: 'Busy, kontraktowe vany, auta firmowe na fakturę VAT.',
-    iconClass: 'bg-ink text-white',
-  },
-  {
-    num: '03',
-    title: 'Powypadkowe',
-    desc: 'Po stłuczce, po pożarze, do kasacji — wyceniamy każdy stan.',
-    iconClass: 'bg-red text-white',
-  },
-  {
-    num: '04',
-    title: 'Problematyczne',
-    desc: 'Z kredytem, bez OC, bez przeglądu, na obcych znakach — bierzemy.',
-    iconClass: 'bg-paper-2 text-ink',
-  },
-];
+import { whatWeBuyItems } from '@/lib/data';
 
 export default function WhatWeBuy() {
   return (
@@ -43,7 +18,7 @@ export default function WhatWeBuy() {
         </div>
 
         <div className='grid grid-cols-4 gap-px bg-line border border-line rounded-[18px] overflow-hidden max-[960px]:grid-cols-2 max-[560px]:grid-cols-1'>
-          {items.map((item) => (
+          {whatWeBuyItems.map((item) => (
             <div
               key={item.num}
               className='bg-white px-6 pt-7 pb-8 min-h-55 flex flex-col justify-between'

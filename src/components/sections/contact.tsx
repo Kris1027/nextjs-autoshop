@@ -1,3 +1,5 @@
+import { phone, phoneLocal, email, contactHours } from '@/lib/data';
+
 export default function Contact() {
   return (
     <section id='kontakt' className='bg-paper-2 py-24 max-[960px]:py-18'>
@@ -25,7 +27,7 @@ export default function Contact() {
                 className='font-extrabold tracking-[-0.03em] leading-none'
                 style={{ fontSize: 'clamp(40px, 5.5vw, 72px)' }}
               >
-                +48 <b className='text-red'>601 500 160</b>
+                +48 <b className='text-red'>{phoneLocal}</b>
               </div>
             </div>
 
@@ -34,7 +36,7 @@ export default function Contact() {
                 <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
                   E-mail
                 </span>
-                <b className='text-[15px]'>kontakt@skupaut.pl</b>
+                <b className='text-[15px]'>{email}</b>
               </div>
               <div>
                 <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
@@ -46,7 +48,7 @@ export default function Contact() {
                 <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
                   WhatsApp
                 </span>
-                <b className='text-[15px]'>+48 601 500 160</b>
+                <b className='text-[15px]'>{phone}</b>
               </div>
               <div>
                 <span className='block font-mono text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-1.5'>
@@ -62,12 +64,7 @@ export default function Contact() {
               Godziny pracy
             </h3>
             <div className='flex flex-col border-t border-white/12'>
-              {[
-                ['Pon — Pt', '8:00 — 22:00'],
-                ['Sobota', '9:00 — 20:00'],
-                ['Niedziela', '10:00 — 18:00'],
-                ['Święta', 'Po telefonie'],
-              ].map(([day, hours]) => (
+              {contactHours.map(([day, hours]) => (
                 <div
                   key={day}
                   className='flex justify-between items-center py-4 border-b border-white/12 text-[15px]'
