@@ -2,8 +2,8 @@ import { phone } from '@/lib/data';
 
 export default function Hero() {
   return (
-    <section className='py-20 pb-14 overflow-hidden'>
-      <div className='max-w-300 mx-auto px-8 max-[560px]:px-5'>
+    <section className='min-h-svh flex items-center overflow-hidden'>
+      <div className='w-full max-w-300 mx-auto px-8 max-[560px]:px-5 py-20'>
         <div>
           <div className='flex items-center gap-3.5 font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft mb-7'>
             <span className='block h-px w-12 bg-ink' />
