@@ -25,16 +25,16 @@ export default function OpenStatus() {
   const beforeOpen = !!schedule && current < toMinutes(schedule.open);
 
   const statusText = isOpen
-    ? 'Czynne — odbieramy telefon'
+    ? 'Teraz czynne'
     : beforeOpen
       ? `Nieczynne — otwieramy od ${schedule!.open}`
-      : 'Nieczynne — zadzwoń jutro';
+      : 'Nieczynne — do zobaczenia jutro';
 
   return (
     <>
       <span className='flex items-center'>
         <span
-          className={`inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle ${isOpen ? 'bg-[#3ec07a]' : 'bg-red'}`}
+          className={`inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle animate-pulse ${isOpen ? 'bg-green-500' : 'bg-red-500'}`}
         />
         {statusText}
       </span>
