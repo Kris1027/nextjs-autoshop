@@ -55,9 +55,9 @@ export const whatWeBuyItems = [
 
 export const whyUsReasons = [
   {
-    big: '17',
-    title: 'Lat doświadczenia',
-    desc: 'Od 2009 roku skupujemy auta w całej Polsce. Wiemy ile co naprawdę kosztuje — i nie próbujemy zbijać ceny po przyjeździe.',
+    big: '4',
+    title: 'Lata doświadczenia',
+    desc: 'Od 2022 roku skupujemy i sprzedajemy auta. Wiemy ile co naprawdę kosztuje — i nie próbujemy zbijać ceny po przyjeździe.',
   },
   {
     big: '0 zł',

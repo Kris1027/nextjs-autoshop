@@ -18,6 +18,8 @@
   --color-line: var(--line);
   --color-red: var(--red);
   --color-red-deep: var(--red-deep);
+  --color-white: #fff;
+  --color-black: #000;
   --font-sans: var(--font-manrope);
   --font-mono: var(--font-jetbrains);
 }
@@ -34,7 +36,9 @@ body {
   padding: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

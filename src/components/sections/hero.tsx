@@ -9,13 +9,10 @@ export default function Hero() {
         <div>
           <div className='flex items-center gap-3.5 font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft mb-7'>
             <span className='block h-px w-12 bg-ink' />
-            Skup samochodów · od 2009
+            Skup samochodów · od 2022
           </div>
 
-          <h1
-            className='font-extrabold leading-[0.92] tracking-[-0.035em] m-0 mb-7 text-balance'
-            style={{ fontSize: 'clamp(56px, 8vw, 116px)' }}
-          >
+          <h1 className='font-extrabold leading-28 tracking-tighter m-0 mb-7 text-balance text-[clamp(56px,8vw,116px)]'>
             Kupujemy <em className='not-italic text-red'>każde auto.</em>
             <br />
             Gotówka od ręki.
@@ -29,16 +26,10 @@ export default function Hero() {
           <div className='flex gap-3.5 flex-wrap items-center'>
             <a
               href={`tel:${phone.replace(/\s/g, '')}`}
-              className='bg-red text-white px-6.5 py-4.5 rounded-[14px] font-bold text-[17px] inline-flex items-center gap-3.5'
-              style={{
-                boxShadow:
-                  '0 1px 0 rgba(0,0,0,.04), 0 12px 24px -8px rgba(230,51,41,.45)',
-              }}
+              className='inline-flex items-center gap-3 bg-red hover:bg-red-deep text-white px-6 py-3.5 rounded-full font-bold text-[16px] tracking-[0.01em] transition-colors'
             >
               <span>Zadzwoń teraz</span>
-              <span className='font-mono font-medium opacity-[0.92]'>
-                {phone}
-              </span>
+              <span className='font-mono font-medium'>{phone}</span>
             </a>
           </div>
         </div>
