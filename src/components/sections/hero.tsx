@@ -1,11 +1,9 @@
-import Image from 'next/image';
-import logo from '@public/logo.png';
-import { phone, email } from '@/lib/data';
+import { phone } from '@/lib/data';
 
 export default function Hero() {
   return (
     <section className='py-20 pb-14 overflow-hidden'>
-      <div className='max-w-300 mx-auto px-8 max-[560px]:px-5 grid grid-cols-[1.15fr_0.85fr] gap-16 items-end max-[960px]:grid-cols-1 max-[960px]:gap-10'>
+      <div className='max-w-300 mx-auto px-8 max-[560px]:px-5'>
         <div>
           <div className='flex items-center gap-3.5 font-mono text-[12px] uppercase tracking-[0.18em] text-ink-soft mb-7'>
             <span className='block h-px w-12 bg-ink' />
@@ -33,48 +31,6 @@ export default function Hero() {
             </a>
           </div>
         </div>
-
-        <aside className='bg-white border border-line rounded-[18px] p-7 relative'>
-          <div className='absolute top-3.5 right-6 bg-ink text-white font-mono text-[11px] uppercase tracking-[0.16em] px-3 py-1.5 rounded-full'>
-            Wizytówka
-          </div>
-
-          <div className='w-full aspect-square bg-white rounded-xl flex items-center justify-center border border-dashed border-line'>
-            <Image
-              src={logo}
-              alt={`skupAUT — ${phone}`}
-              className='max-w-[78%] max-h-[78%] object-contain'
-              placeholder='blur'
-            />
-          </div>
-
-          <div className='grid grid-cols-2 gap-4.5 mt-5.5 text-[13px]'>
-            <div>
-              <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>
-                Telefon
-              </span>
-              <b>{phone}</b>
-            </div>
-            <div>
-              <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>
-                E-mail
-              </span>
-              <b>{email}</b>
-            </div>
-            <div>
-              <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>
-                Zasięg
-              </span>
-              <b>Cała Polska</b>
-            </div>
-            <div>
-              <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>
-                Płatność
-              </span>
-              <b>Gotówka / przelew</b>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
   );
