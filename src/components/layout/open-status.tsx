@@ -27,8 +27,8 @@ export default function OpenStatus() {
   const statusText = isOpen
     ? 'Teraz czynne'
     : beforeOpen
-      ? `Nieczynne — otwieramy od ${schedule!.open}`
-      : 'Nieczynne — do zobaczenia jutro';
+      ? `Nieczynne - otwieramy od ${schedule!.open}`
+      : 'Nieczynne - do zobaczenia jutro';
 
   return (
     <>

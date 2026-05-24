@@ -83,7 +83,7 @@ export const contactHours = [
   ['Święta', 'Telefon'],
 ];
 
-// 0=Sun, 1=Mon, ..., 6=Sat — null means closed that day
+// 0=Sun, 1=Mon, ..., 6=Sat - null means closed that day
 export const businessSchedule: Record<
   number,
   { day: string; open: string; close: string } | null

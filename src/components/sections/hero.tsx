@@ -16,9 +16,9 @@ export default function Hero() {
             Gotówka od ręki.
           </h1>
 
-          <p className='text-[19px] text-ink-soft max-w-[46ch] m-0 mb-9'>
-            Bez ogłoszeń, bez negocjacji po tygodniu. Dzwonisz — przyjeżdżamy —
-            płacimy. Każda marka, każdy rocznik, każdy stan techniczny.
+          <p className='text-lg leading-relaxed text-ink-soft max-w-xl m-0 mb-9 text-pretty'>
+            Bez ogłoszeń, bez negocjacji po tygodniu. Dzwonisz - przyjeżdżamy.
+            Każda marka, każdy rocznik, każdy stan techniczny.
           </p>
 
           <div className='flex gap-3.5 flex-wrap items-center'>
