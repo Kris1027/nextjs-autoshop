@@ -1,4 +1,5 @@
 import { phone } from '@/lib/data';
+import OpenStatus from './open-status';
 
 export default function Header() {
   return (
@@ -9,11 +10,7 @@ export default function Header() {
         </div>
 
         <div className='flex items-center gap-7 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-soft max-[560px]:hidden'>
-          <span className='flex items-center'>
-            <span className='inline-block w-1.5 h-1.5 rounded-full bg-[#3ec07a] mr-2 align-middle' />
-            Czynne — odbieramy telefon
-          </span>
-          <span>PN–ND · 8:00–22:00</span>
+          <OpenStatus />
         </div>
 
         <a

@@ -82,3 +82,17 @@ export const contactHours = [
   ['Niedziela', '11:00 - 15:00'],
   ['Święta', 'Telefon'],
 ];
+
+// 0=Sun, 1=Mon, ..., 6=Sat — null means closed that day
+export const businessSchedule: Record<
+  number,
+  { day: string; open: string; close: string } | null
+> = {
+  0: { day: 'Niedziela', open: '11:00', close: '15:00' },
+  1: { day: 'Poniedziałek', open: '09:00', close: '16:00' },
+  2: { day: 'Wtorek', open: '09:00', close: '16:00' },
+  3: { day: 'Środa', open: '09:00', close: '16:00' },
+  4: { day: 'Czwartek', open: '09:00', close: '16:00' },
+  5: { day: 'Piątek', open: '09:00', close: '16:00' },
+  6: { day: 'Sobota', open: '09:00', close: '16:00' },
+};
