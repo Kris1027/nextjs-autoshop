@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import logo from '@public/logo.png';
+import { phone, email } from '@/lib/data';
 
 export default function Hero() {
   return (
@@ -27,7 +28,7 @@ export default function Hero() {
 
           <div className='flex gap-3.5 flex-wrap items-center'>
             <a
-              href='tel:+48601500160'
+              href={`tel:${phone.replace(/\s/g, '')}`}
               className='bg-red text-white px-6.5 py-4.5 rounded-[14px] font-bold text-[17px] inline-flex items-center gap-3.5'
               style={{
                 boxShadow:
@@ -36,7 +37,7 @@ export default function Hero() {
             >
               <span>Zadzwoń teraz</span>
               <span className='font-mono font-medium opacity-[0.92]'>
-                +48 601 500 160
+                {phone}
               </span>
             </a>
           </div>
@@ -50,7 +51,7 @@ export default function Hero() {
           <div className='w-full aspect-square bg-white rounded-xl flex items-center justify-center border border-dashed border-line'>
             <Image
               src={logo}
-              alt='skupAUT — +48 601 500 160'
+              alt={`skupAUT — ${phone}`}
               className='max-w-[78%] max-h-[78%] object-contain'
               placeholder='blur'
             />
@@ -61,13 +62,13 @@ export default function Hero() {
               <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>
                 Telefon
               </span>
-              <b>+48 601 500 160</b>
+              <b>{phone}</b>
             </div>
             <div>
               <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>
                 E-mail
               </span>
-              <b>kontakt@skupaut.pl</b>
+              <b>{email}</b>
             </div>
             <div>
               <span className='block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft mb-1'>

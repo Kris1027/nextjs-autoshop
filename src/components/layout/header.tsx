@@ -1,3 +1,5 @@
+import { phone } from '@/lib/data';
+
 export default function Header() {
   return (
     <header className='border-b border-line bg-paper sticky top-0 z-10'>
@@ -15,10 +17,10 @@ export default function Header() {
         </div>
 
         <a
-          href='tel:+48601500160'
+          href={`tel:${phone.replace(/\s/g, '')}`}
           className="inline-flex items-center gap-2.5 bg-ink text-white px-4 py-2.5 rounded-full font-bold text-[14px] tracking-[0.01em] before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-red"
         >
-          +48 601 500 160
+          {phone}
         </a>
       </div>
     </header>

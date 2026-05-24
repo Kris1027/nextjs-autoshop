@@ -1,25 +1,4 @@
-const reasons = [
-  {
-    big: '17',
-    title: 'Lat doświadczenia',
-    desc: 'Od 2009 roku skupujemy auta w całej Polsce. Wiemy ile co naprawdę kosztuje — i nie próbujemy zbijać ceny po przyjeździe.',
-  },
-  {
-    big: '0 zł',
-    title: 'Za dojazd i lawetę',
-    desc: 'Przyjeżdżamy na nasz koszt, niezależnie od dystansu. Nie ma znaczenia czy auto pali, jeździ, czy stoi w garażu od pięciu lat.',
-  },
-  {
-    big: '24h',
-    title: 'Od telefonu do gotówki',
-    desc: 'Najczęściej tego samego dnia. W trudniejszych przypadkach maks. doba. Bez przeciągania, bez „oddzwonię”.',
-  },
-  {
-    big: '100%',
-    title: 'Legalnie i bezpiecznie',
-    desc: 'Umowa kupna-sprzedaży, wyrejestrowanie po naszej stronie, raport z bazy CEPIK. Żadnych "cwaniackich" podpisów na kolanie.',
-  },
-];
+import { whyUsReasons } from '@/lib/data';
 
 export default function WhyUs() {
   return (
@@ -38,7 +17,7 @@ export default function WhyUs() {
         </div>
 
         <div className='grid grid-cols-2 gap-px bg-line border border-line rounded-[18px] overflow-hidden max-[960px]:grid-cols-1'>
-          {reasons.map((r) => (
+          {whyUsReasons.map((r) => (
             <div
               key={r.title}
               className='bg-white p-9 grid grid-cols-[80px_1fr] gap-6 items-start'

@@ -1,26 +1,4 @@
-const steps = [
-  {
-    step: 'Krok 01',
-    time: "15'",
-    title: 'Wycena przez telefon',
-    desc: 'Dzwonisz, opisujesz auto — markę, rocznik, przebieg, stan. Wstępną kwotę podajemy w 15 minut.',
-    highlight: false,
-  },
-  {
-    step: 'Krok 02',
-    time: '2h',
-    title: 'Dojeżdżamy do Ciebie',
-    desc: 'Oglądamy auto na miejscu, w tym samym dniu. Nie musisz nigdzie jechać — w razie potrzeby zabieramy własną lawetą.',
-    highlight: true,
-  },
-  {
-    step: 'Krok 03',
-    time: '—',
-    title: 'Gotówka i papiery',
-    desc: 'Spisujemy umowę, płacimy gotówką lub przelewem natychmiastowym. Formalności załatwiamy w 15 minut.',
-    highlight: false,
-  },
-];
+import { howItWorksSteps } from '@/lib/data';
 
 export default function HowItWorks() {
   return (
@@ -40,7 +18,7 @@ export default function HowItWorks() {
         </div>
 
         <div className='grid grid-cols-3 gap-6 max-[960px]:grid-cols-1'>
-          {steps.map((s) => (
+          {howItWorksSteps.map((s) => (
             <div
               key={s.step}
               className={`border rounded-2xl p-7 flex flex-col gap-4.5 min-h-70 ${
