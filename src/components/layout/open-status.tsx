@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { businessSchedule } from '@/lib/data';
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -26,10 +27,23 @@ function toMinutes(t: string): number {
 }
 
 export default function OpenStatus() {
-  const { dayOfWeek, minutesFromMidnight } = getWarsawParts();
-  const schedule = businessSchedule[dayOfWeek];
+  // computed only after mount - the prerendered HTML is built at deploy time,
+  // so rendering "now" on the server would be stale and mismatch on hydration
+  const [now, setNow] = useState<ReturnType<typeof getWarsawParts> | null>(
+    null
+  );
 
-  const current = minutesFromMidnight;
+  useEffect(() => {
+    const update = () => setNow(getWarsawParts());
+    update();
+    const id = setInterval(update, 60_000);
+    return () => clearInterval(id);
+  }, []);
+
+  if (!now) return null;
+
+  const schedule = businessSchedule[now.dayOfWeek];
+  const current = now.minutesFromMidnight;
   const isOpen =
     !!schedule &&
     current >= toMinutes(schedule.open) &&
