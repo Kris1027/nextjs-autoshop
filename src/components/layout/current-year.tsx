@@ -1,14 +1,13 @@
 'use client';
 
-import { useSyncExternalStore } from 'react';
-
-const subscribe = () => () => {};
-const getYear = () => new Date().getFullYear();
+import { useNow } from '@/lib/use-now';
 
 export default function CurrentYear() {
-  // the prerendered HTML bakes in the build-time year (server snapshot);
-  // after hydration React swaps in the visitor's current year
-  const year = useSyncExternalStore(subscribe, getYear, getYear);
+  const now = useNow();
 
-  return <span>{year}</span>;
+  // the static HTML carries the build-time year as a fallback; once the
+  // clock hook ticks in on the client, the visitor's actual year takes over
+  return (
+    <span suppressHydrationWarning>{(now ?? new Date()).getFullYear()}</span>
+  );
 }
