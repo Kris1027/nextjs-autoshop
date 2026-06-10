@@ -4,14 +4,12 @@ import './globals.css';
 
 const manrope = Manrope({
   variable: '--font-manrope',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin', 'latin-ext'],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains',
-  subsets: ['latin'],
-  weight: ['400', '500'],
+  subsets: ['latin', 'latin-ext'],
 });
 
 export const metadata: Metadata = {
