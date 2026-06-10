@@ -1,17 +1,21 @@
 'use client';
 
 import { businessSchedule } from '@/lib/data';
+import { useNow } from '@/lib/use-now';
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-function getWarsawParts(): { dayOfWeek: number; minutesFromMidnight: number } {
+function getWarsawParts(date: Date): {
+  dayOfWeek: number;
+  minutesFromMidnight: number;
+} {
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Europe/Warsaw',
     weekday: 'short',
     hour: '2-digit',
     minute: '2-digit',
     hourCycle: 'h23',
-  }).formatToParts(new Date());
+  }).formatToParts(date);
   const get = (type: string) =>
     parts.find((p) => p.type === type)?.value ?? '0';
   return {
@@ -25,8 +29,22 @@ function toMinutes(t: string): number {
   return h * 60 + m;
 }
 
-export default function OpenStatus() {
-  const { dayOfWeek, minutesFromMidnight } = getWarsawParts();
+export default function LiveClock({ show }: { show: 'open-status' | 'year' }) {
+  const now = useNow();
+
+  if (show === 'year') {
+    // the static HTML carries the build-time year as a fallback; once the
+    // clock ticks in on the client, the visitor's actual year takes over
+    return (
+      <span suppressHydrationWarning>{(now ?? new Date()).getFullYear()}</span>
+    );
+  }
+
+  // nothing to show until the client clock is available - the prerendered
+  // HTML is built at deploy time, so a server-rendered status would be stale
+  if (!now) return null;
+
+  const { dayOfWeek, minutesFromMidnight } = getWarsawParts(now);
   const schedule = businessSchedule[dayOfWeek];
 
   const current = minutesFromMidnight;

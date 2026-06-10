@@ -1,4 +1,4 @@
-import { phone } from '@/lib/data';
+import { phone, phoneHref } from '@/lib/data';
 
 export default function Hero() {
   return (
@@ -23,7 +23,7 @@ export default function Hero() {
 
           <div className='flex gap-3.5 flex-wrap items-center'>
             <a
-              href={`tel:${phone.replace(/\s/g, '')}`}
+              href={phoneHref}
               className='inline-flex flex-wrap justify-center items-center gap-x-3 gap-y-1 bg-red hover:bg-red-deep text-white px-6 py-3.5 rounded-full font-bold text-[16px] tracking-[0.01em] transition-colors'
             >
               <span className='whitespace-nowrap'>Zadzwoń teraz</span>

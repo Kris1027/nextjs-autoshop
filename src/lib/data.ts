@@ -1,7 +1,14 @@
+// TODO: replace with the real production domain once it exists
+export const siteUrl = 'https://website-placeholder.pl';
+
 export const phone = '+48 601 500 160';
+export const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 export const phoneLocal = '601 500 160';
 export const email = 'kontakt@skupaut.pl';
 export const businessName = 'skupAUT';
+
+export const siteTitle = `${businessName} — Skup samochodów · ${phone}`;
+export const siteDescription = `Kupujemy każde auto — osobowe, dostawcze, powypadkowe. Gotówka od ręki, dojazd gratis. Dzwoń 7 dni w tygodniu: ${phone}.`;
 
 export const howItWorksSteps = [
   {

@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# skupAUT
 
-## Getting Started
+Business card website for a Polish car-buying service (skup samochodów) - a single statically prerendered landing page with contact details, opening hours, and a click-to-call flow.
 
-First, run the development server:
+## Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- [React 19](https://react.dev)
+- [TypeScript](https://www.typescriptlang.org) (strict)
+- [Tailwind CSS v4](https://tailwindcss.com) (CSS-first config via `@theme`)
+- [pnpm](https://pnpm.io)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script           | What it does                                          |
+| ---------------- | ----------------------------------------------------- |
+| `pnpm dev`       | Start the dev server                                  |
+| `pnpm build`     | Production build                                      |
+| `pnpm start`     | Serve the production build                            |
+| `pnpm lint`      | ESLint                                                |
+| `pnpm typecheck` | TypeScript without emitting                           |
+| `pnpm validate`  | Prettier + ESLint + typecheck + build (the full gate) |
 
-## Learn More
+Husky runs `lint-staged` (Prettier) and `pnpm validate` on every commit, so nothing lands without passing the full gate.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                  # App Router: layout, page, 404, SEO files
+│   ├── layout.tsx        # Fonts, global metadata (Open Graph, canonical)
+│   ├── page.tsx          # Composes the landing page sections
+│   ├── not-found.tsx     # Branded 404
+│   ├── opengraph-image.tsx  # OG preview image, generated at build time
+│   ├── robots.ts         # robots.txt
+│   └── sitemap.ts        # sitemap.xml
+├── components/
+│   ├── layout/           # Header, footer, LiveClock
+│   └── sections/         # Hero, offer, how-it-works, why-us, contact
+└── lib/
+    ├── data.ts           # Single source of truth: phone, hours, copy, siteUrl
+    └── use-now.ts        # Hydration-safe client clock hook
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Conventions and practices
 
-## Deploy on Vercel
+- **Server Components by default.** The only client component is `LiveClock` (header open/closed status and footer year), kept as a small leaf so the rest of the page ships no client JS.
+- **Hydration-safe time rendering.** The page is prerendered at build time, so anything derived from "now" goes through the `useNow` hook (`useSyncExternalStore`): `null` during prerender and hydration, then the client clock with a per-minute refresh. Never render `new Date()` directly during render.
+- **Fonts via `next/font`** with the `latin-ext` subset - the copy is Polish, and `latin` alone is missing ą, ć, ę, ł, ń, ó, ś, ź, ż. Both fonts are variable, so no `weight` arrays.
+- **Images via `next/image`** with static imports (dimensions inferred, no layout shift) and `priority` on the above-the-fold header logo only.
+- **SEO via the Metadata API and file conventions**: `metadataBase`, Open Graph tags, canonical URL, a build-time-generated `opengraph-image`, `robots.ts`, and `sitemap.ts`.
+- **Single source of truth in `src/lib/data.ts`.** Phone number, `tel:` href, opening hours, titles, and all section copy live there - components only render it. Derived values (`phoneHref`, `siteTitle`, `contactHours`) are computed from the base constants, never duplicated.
+- **Styling stays in Tailwind utility classes**, with design tokens (colors, fonts, animations) defined once in `globals.css` under `@theme`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Before launch:** `siteUrl` in `src/lib/data.ts` is a placeholder (`https://website-placeholder.pl`). Replace it with the real domain - it feeds the canonical URL, Open Graph URL, robots, and the sitemap.
