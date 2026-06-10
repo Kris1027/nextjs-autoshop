@@ -10,7 +10,7 @@ export default function Hero() {
             Skup samochodów · od 2022
           </div>
 
-          <h1 className='font-extrabold leading-28 tracking-tighter m-0 mb-7 text-balance text-[clamp(56px,8vw,116px)]'>
+          <h1 className='font-extrabold leading-[0.97] tracking-tighter m-0 mb-7 text-balance text-[clamp(48px,8vw,116px)]'>
             Kupujemy <em className='not-italic text-red'>każde auto.</em>
             <br />
             Gotówka od ręki.
@@ -24,10 +24,12 @@ export default function Hero() {
           <div className='flex gap-3.5 flex-wrap items-center'>
             <a
               href={`tel:${phone.replace(/\s/g, '')}`}
-              className='inline-flex items-center gap-3 bg-red hover:bg-red-deep text-white px-6 py-3.5 rounded-full font-bold text-[16px] tracking-[0.01em] transition-colors'
+              className='inline-flex flex-wrap justify-center items-center gap-x-3 gap-y-1 bg-red hover:bg-red-deep text-white px-6 py-3.5 rounded-full font-bold text-[16px] tracking-[0.01em] transition-colors'
             >
-              <span>Zadzwoń teraz</span>
-              <span className='font-mono font-medium'>{phone}</span>
+              <span className='whitespace-nowrap'>Zadzwoń teraz</span>
+              <span className='font-mono font-medium whitespace-nowrap'>
+                {phone}
+              </span>
             </a>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import logo from '@public/logo-1.png';
+import { phone } from '@/lib/data';
 import OpenStatus from './open-status';
 
 export default function Header() {
@@ -10,6 +11,12 @@ export default function Header() {
         <div className='flex items-center gap-7 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-soft max-[560px]:hidden'>
           <OpenStatus />
         </div>
+        <a
+          href={`tel:${phone.replace(/\s/g, '')}`}
+          className='hidden max-[560px]:inline-flex items-center whitespace-nowrap bg-red hover:bg-red-deep text-white px-4 py-2 rounded-full font-mono font-bold text-[13px] tracking-[0.04em] transition-colors'
+        >
+          {phone}
+        </a>
       </div>
     </header>
   );
