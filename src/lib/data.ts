@@ -2,6 +2,7 @@
 export const siteUrl = 'https://website-placeholder.pl';
 
 export const phone = '+48 601 500 160';
+export const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 export const phoneLocal = '601 500 160';
 export const email = 'kontakt@skupaut.pl';
 export const businessName = 'skupAUT';

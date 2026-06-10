@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import logo from '@public/logo-1.png';
-import { phone } from '@/lib/data';
+import { phone, phoneHref } from '@/lib/data';
 import LiveClock from './live-clock';
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
           <LiveClock show='open-status' />
         </div>
         <a
-          href={`tel:${phone.replace(/\s/g, '')}`}
+          href={phoneHref}
           className='hidden max-[560px]:inline-flex items-center whitespace-nowrap bg-red hover:bg-red-deep text-white px-4 py-2 rounded-full font-mono font-bold text-[13px] tracking-[0.04em] transition-colors'
         >
           {phone}
