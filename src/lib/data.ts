@@ -27,6 +27,18 @@ export const howItWorksSteps = [
   },
 ];
 
+export const stripItems = [
+  'Osobowe',
+  'Dostawcze',
+  'Powypadkowe',
+  'Bez przeglądu',
+  'Z kredytem',
+  'Bez OC',
+  'Niemieckie znaki',
+  'Importowane',
+  'Stare i nowe',
+];
+
 export const whatWeBuyItems = [
   {
     num: '01',

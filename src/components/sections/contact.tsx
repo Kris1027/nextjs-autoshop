@@ -25,9 +25,9 @@ export default function Contact() {
               </span>
               <div
                 className='font-extrabold tracking-[-0.03em] leading-none'
-                style={{ fontSize: 'clamp(40px, 5.5vw, 72px)' }}
+                style={{ fontSize: 'clamp(36px, 4.5vw, 56px)' }}
               >
-                +48 <b className='text-red'>{phoneLocal}</b>
+                +48 <b className='text-red whitespace-nowrap'>{phoneLocal}</b>
               </div>
             </div>
 

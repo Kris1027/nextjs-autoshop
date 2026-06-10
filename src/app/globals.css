@@ -24,6 +24,17 @@
   --font-mono: var(--font-jetbrains);
 }
 
+@theme {
+  --animate-marquee: marquee 36s linear infinite;
+
+  /* one copy of the strip content plus half the 4rem track gap */
+  @keyframes marquee {
+    to {
+      transform: translateX(calc(-50% - 2rem));
+    }
+  }
+}
+
 *,
 *::before,
 *::after {

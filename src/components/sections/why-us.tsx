@@ -20,9 +20,9 @@ export default function WhyUs() {
           {whyUsReasons.map((r) => (
             <div
               key={r.title}
-              className='bg-white p-9 grid grid-cols-[80px_1fr] gap-6 items-start'
+              className='bg-white p-9 grid grid-cols-[140px_1fr] gap-6 items-start max-[560px]:grid-cols-1 max-[560px]:gap-4 max-[560px]:p-7'
             >
-              <div className='text-[56px] font-extrabold tracking-[-0.04em] leading-none text-red'>
+              <div className='text-[56px] font-extrabold tracking-[-0.04em] leading-none text-red max-[560px]:text-[44px]'>
                 {r.big}
               </div>
               <div>
