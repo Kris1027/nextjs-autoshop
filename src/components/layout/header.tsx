@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import logo from '@public/logo-1.png';
 import { phone } from '@/lib/data';
-import OpenStatus from './open-status';
+import LiveClock from './live-clock';
 
 export default function Header() {
   return (
@@ -9,7 +9,7 @@ export default function Header() {
       <div className='max-w-300 mx-auto px-8 max-[560px]:px-5 flex items-center justify-between h-18'>
         <Image src={logo} alt='skup aut logo' height={36} />
         <div className='flex items-center gap-7 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-soft max-[560px]:hidden'>
-          <OpenStatus />
+          <LiveClock show='open-status' />
         </div>
         <a
           href={`tel:${phone.replace(/\s/g, '')}`}

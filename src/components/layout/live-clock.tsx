@@ -29,8 +29,16 @@ function toMinutes(t: string): number {
   return h * 60 + m;
 }
 
-export default function OpenStatus() {
+export default function LiveClock({ show }: { show: 'open-status' | 'year' }) {
   const now = useNow();
+
+  if (show === 'year') {
+    // the static HTML carries the build-time year as a fallback; once the
+    // clock ticks in on the client, the visitor's actual year takes over
+    return (
+      <span suppressHydrationWarning>{(now ?? new Date()).getFullYear()}</span>
+    );
+  }
 
   // nothing to show until the client clock is available - the prerendered
   // HTML is built at deploy time, so a server-rendered status would be stale
