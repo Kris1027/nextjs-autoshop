@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Manrope, JetBrains_Mono } from 'next/font/google';
+import { businessName, siteDescription, siteTitle, siteUrl } from '@/lib/data';
 import './globals.css';
 
 const manrope = Manrope({
@@ -13,9 +14,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'skupAUT — Skup samochodów · +48 601 500 160',
-  description:
-    'Kupujemy każde auto — osobowe, dostawcze, powypadkowe. Gotówka od ręki, dojazd gratis. Dzwoń 7 dni w tygodniu: +48 601 500 160.',
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'pl_PL',
+    url: '/',
+    siteName: businessName,
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
