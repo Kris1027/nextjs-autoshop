@@ -1,15 +1,18 @@
 import { ImageResponse } from 'next/og';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-import { phone } from '@/lib/data';
 
-export const alt = 'skupAUT - skup samochodów, gotówka od ręki';
+export const alt = 'skupAUT - Kupujemy każde auto. Gotówka od ręki.';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
   const logo = await readFile(join(process.cwd(), 'public/logo-1.png'));
   const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
+  // default OG font only covers latin + latin-1, so ą/ę/ż need Manrope
+  const manrope = await readFile(
+    join(process.cwd(), 'assets/Manrope-ExtraBold.ttf')
+  );
 
   return new ImageResponse(
     <div
@@ -18,31 +21,33 @@ export default async function Image() {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         justifyContent: 'center',
-        gap: 56,
+        gap: 72,
+        padding: 80,
         // white instead of the paper tone so the logo's white box blends in
         backgroundColor: '#fff',
       }}
     >
-      <img src={logoSrc} alt='' width={480} height={127} />
+      <img src={logoSrc} alt='' width={417} height={110} />
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          gap: 16,
+          fontSize: 92,
+          lineHeight: 1.05,
+          letterSpacing: '-0.04em',
+          color: '#2b2b2b',
         }}
       >
-        <div style={{ fontSize: 72, fontWeight: 700, color: '#2b2b2b' }}>
-          {phone}
+        <div style={{ display: 'flex' }}>
+          Kupujemy&nbsp;<span style={{ color: '#e63329' }}>każde auto.</span>
         </div>
-        {/* default OG font only covers latin + latin-1, so no ą/ę/ł here */}
-        <div style={{ fontSize: 34, color: '#e63329' }}>
-          Skup samochodów · 7 dni w tygodniu
-        </div>
+        <div style={{ display: 'flex' }}>Gotówka od ręki.</div>
       </div>
     </div>,
-    size
+    {
+      ...size,
+      fonts: [{ name: 'Manrope', data: manrope, style: 'normal', weight: 800 }],
+    }
   );
 }
